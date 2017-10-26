@@ -29,11 +29,8 @@ instance Show Stm where
 
 someFunc :: IO ()
 someFunc = do
-  input <- fmap head getArgs
+  input <- head <$> getArgs
   parseTest parseStm input
-
-singleLetterP :: Parser Char
-singleLetterP = char 'h'
 
 parseNumeral :: Parser Numeral
 parseNumeral = fmap fromInteger decimal
